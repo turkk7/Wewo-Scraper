@@ -291,32 +291,30 @@ class GoogleMapsDataScraper {
         try {
             const formattedData = { ...data };
 
-            // دالة لإزالة الإيموجي من النص
             const removeEmoji = (text) => {
                 if (!text) return text;
                 return text
-                    .replace(/[\u{1F300}-\u{1F9FF}]/gu, '') // إزالة الإيموجي
-                    .replace(/[\u{1F600}-\u{1F64F}]/gu, '') // إزالة تعبيرات الوجه
-                    .replace(/[\u{2600}-\u{26FF}]/gu, '') // إزالة الرموز المتنوعة
-                    .replace(/[\u{2700}-\u{27BF}]/gu, '') // إزالة رموز ديكور
-                    .replace(/[\u{1F680}-\u{1F6FF}]/gu, '') // إزالة رموز النقل والأشياء
-                    .replace(/[\u{2B50}]/gu, '') // إزالة النجوم
-                    .replace(/[\u{2B06}-\u{2B07}]/gu, '') // إزالة الأسهم
-                    .replace(/[‎‏]/g, '') // إزالة علامات التوجيه
-                    .replace(/\s+/g, ' ') // تنظيف المسافات المتعددة
+                    .replace(/[\u{1F300}-\u{1F9FF}]/gu, '') 
+                    .replace(/[\u{1F600}-\u{1F64F}]/gu, '') 
+                    .replace(/[\u{2600}-\u{26FF}]/gu, '') 
+                    .replace(/[\u{2700}-\u{27BF}]/gu, '') 
+                    .replace(/[\u{1F680}-\u{1F6FF}]/gu, '') 
+                    .replace(/[\u{2B50}]/gu, '') 
+                    .replace(/[\u{2B06}-\u{2B07}]/gu, '') 
+                    .replace(/[‎‏]/g, '') 
+                    .replace(/\s+/g, ' ') 
                     .trim();
             };
 
-            // دالة لإزالة الأقواس والرموز غير المرغوب فيها
             const cleanText = (text) => {
                 if (!text) return text;
                 return text
-                    .replace(/[()[\]{}]/g, '') // إزالة جميع أنواع الأقواس
-                    .replace(/\s+/g, ' ') // تنظيف المسافات المتعددة
+                    .replace(/[()[\]{}]/g, '') 
+                    .replace(/\s+/g, ' ') 
                     .trim();
             };
 
-            // تنظيف الاسم من الإيموجي والأقواس
+            
             if (formattedData.name) {
                 formattedData.name = cleanText(removeEmoji(formattedData.name));
             }
@@ -324,37 +322,37 @@ class GoogleMapsDataScraper {
             // تنسيق العنوان
             if (formattedData.address) {
                 formattedData.address = removeEmoji(formattedData.address)
-                    .replace(/[()[\]{}]/g, '') // إزالة جميع أنواع الأقواس
-                    .replace(/,\s*/g, '، ') // استبدال الفواصل الإنجليزية بالعربية
-                    .replace(/\s*،\s*/g, '، ') // تنظيم المسافات حول الفواصل العربية
-                    .replace(/\s+/g, ' ') // تنظيف المسافات المتعددة
+                    .replace(/[()[\]{}]/g, '') 
+                    .replace(/,\s*/g, '، ') 
+                    .replace(/\s*،\s*/g, '، ') 
+                    .replace(/\s+/g, ' ') 
                     .trim();
             }
 
-            // تنسيق رقم الهاتف
+            
             if (formattedData.phone) {
                 formattedData.phone = cleanText(removeEmoji(formattedData.phone))
-                    .replace(/^0/, '+966') // تحويل الصفر إلى رمز الدولة
-                    .replace(/\s+/g, '') // إزالة المسافات
-                    .replace(/[^\d+\-]/g, ''); // إزالة أي حروف أو رموز غير الأرقام والشرطة وعلامة +
+                    .replace(/^0/, '+966') 
+                    .replace(/\s+/g, '') 
+                    .replace(/[^\d+\-]/g, ''); 
             }
 
-            // تنسيق الموقع الإلكتروني
+            
             if (formattedData.website) {
                 formattedData.website = removeEmoji(formattedData.website)
-                    .replace(/[()[\]{}]/g, '') // إزالة جميع أنواع الأقواس
-                    .replace(/^(?!https?:\/\/)/, 'https://') // إضافة https إذا لم يكن موجوداً
-                    .replace(/\s+/g, '') // إزالة المسافات
-                    .toLowerCase() // تحويل إلى أحرف صغيرة
+                    .replace(/[()[\]{}]/g, '') 
+                    .replace(/^(?!https?:\/\/)/, 'https://') 
+                    .replace(/\s+/g, '') 
+                    .toLowerCase() 
                     .trim();
             }
 
-            // تنسيق التقييم
+            
             if (formattedData.rating) {
                 formattedData.rating = cleanText(formattedData.rating);
             }
 
-            // تنسيق عدد المراجعات
+            
             if (formattedData.reviews) {
                 formattedData.reviews = cleanText(formattedData.reviews);
             }
@@ -652,7 +650,7 @@ class GoogleMapsDataScraper {
                 }
 
                 if (attempts >= maxAttempts) {
-                    resolve(); // حل الوعد حتى لو لم نجد التفاصيل
+                    resolve(); 
                     return;
                 }
 
