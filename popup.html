@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wewo Scraper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wewo Scraper</h1>
+        
+        <div class="settings">
+            <div class="input-group">
+                <label for="limit">عدد النتائج:</label>
+                <input type="number" id="limit" min="20" max="100" value="20">
+            </div>
+
+            <div class="format-group">
+                <h3>تنسيق التصدير:</h3>
+                <label><input type="radio" name="format" value="csv" checked> CSV</label>
+                <label><input type="radio" name="format" value="excel"> Excel</label>
+                <label><input type="radio" name="format" value="json"> JSON</label>
+            </div>
+
+            <div class="checkboxes">
+                <h3>البيانات المطلوبة:</h3>
+                <label><input type="checkbox" id="name" checked> اسم العمل</label>
+                <label><input type="checkbox" id="address" checked> العنوان</label>
+                <label><input type="checkbox" id="phone" checked> رقم الهاتف</label>
+                <label><input type="checkbox" id="email" checked> البريد الإلكتروني</label>
+                <label><input type="checkbox" id="website" checked> الموقع الإلكتروني</label>
+                <label><input type="checkbox" id="rating" checked> التقييم</label>
+                <label><input type="checkbox" id="reviews" checked> عدد التقييمات</label>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="startBtn">بدء الاستخراج</button>
+            <button id="stopBtn" class="hidden">إيقاف الاستخراج</button>
+            <button id="downloadBtn" disabled>تحميل البيانات</button>
+        </div>
+
+        <div class="progress" style="display: none;">
+            <div class="progress-details">
+                <div class="stage">المرحلة: <span id="currentStage">-</span></div>
+                <div class="details" id="stageDetails">-</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="progress-text">0 / 0</div>
+        </div>
+
+        <div id="status" class="status"></div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html> 
