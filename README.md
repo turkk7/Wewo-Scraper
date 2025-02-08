@@ -54,7 +54,7 @@
 
 - 🐛 إذا واجهت أي مشكلة، يمكنك [فتح issue جديد](https://github.com/turkk7/Wewo-Scraper/issues)
 - 💡 نرحب بمساهماتكم واقتراحاتكم لتحسين الأداة
-- 📧 للتواصل: [LinkedIn](https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit)
+- 📧 للتواصل: [LinkedIn](https://www.linkedin.com/in/turki-aljohni-a61809348/)
 
 ## 📄 الترخيص
 
